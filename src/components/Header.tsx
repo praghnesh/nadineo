@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, Calendar } from 'lucide-react';
+import { Sparkles, Calendar, ArrowLeft } from 'lucide-react';
 
 interface HeaderProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
+  onBack: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
+export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, onBack }) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -32,16 +33,23 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
   return (
     <header className={`header-wrapper ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
-        {/* Brand Logo */}
-        <div className="logo-section" onClick={() => setActiveTab('home')}>
-          <div className="logo-icon-bg">
-            <Sparkles size={18} className="logo-sparkle" />
+        {/* Brand Logo or Back Button */}
+        {activeTab !== 'home' ? (
+          <button className="header-back-arrow-btn" onClick={onBack} aria-label="Go back">
+            <ArrowLeft size={18} />
+            <span>Back</span>
+          </button>
+        ) : (
+          <div className="logo-section" onClick={() => setActiveTab('home')}>
+            <div className="logo-icon-bg">
+              <Sparkles size={18} className="logo-sparkle" />
+            </div>
+            <div className="logo-text">
+              <span className="brand-name">Nadine</span>
+              <span className="brand-sub">Home Beauty Services</span>
+            </div>
           </div>
-          <div className="logo-text">
-            <span className="brand-name">Nadine</span>
-            <span className="brand-sub">Home Beauty Services</span>
-          </div>
-        </div>
+        )}
 
         {/* Desktop Navigation */}
         <nav className="desktop-nav">
@@ -233,6 +241,29 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
 
         .btn-icon {
           color: inherit;
+        }
+
+        .header-back-arrow-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          background: transparent;
+          border: none;
+          color: var(--accent);
+          font-family: 'Poppins', sans-serif;
+          font-size: 14px;
+          font-weight: 500;
+          cursor: pointer;
+          padding: 8px 14px;
+          border-radius: var(--radius-full);
+          border: 1px solid var(--border-color);
+          transition: all var(--transition-normal);
+        }
+
+        .header-back-arrow-btn:hover {
+          background: rgba(183, 110, 121, 0.05);
+          color: var(--accent-hover);
+          transform: translateX(-2px);
         }
       `}</style>
     </header>

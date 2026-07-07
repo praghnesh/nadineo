@@ -42,7 +42,28 @@ interface BookingDetails {
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<string>('home');
+  const [tabHistory, setTabHistory] = useState<string[]>(['home']);
   const [selectedService, setSelectedService] = useState<string>('');
+
+  const changeTab = (tab: string) => {
+    if (tab !== activeTab) {
+      setTabHistory((prev) => [...prev, tab]);
+      setActiveTab(tab);
+    }
+  };
+
+  const goBack = () => {
+    if (tabHistory.length > 1) {
+      const newHistory = [...tabHistory];
+      newHistory.pop(); // Remove current tab
+      const prevTab = newHistory[newHistory.length - 1];
+      setTabHistory(newHistory);
+      setActiveTab(prevTab);
+    } else {
+      setActiveTab('home');
+      setTabHistory(['home']);
+    }
+  };
 
   // Lightbox State
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -80,11 +101,11 @@ function App() {
   const renderView = () => {
     switch (activeTab) {
       case 'home':
-        return <HomeView setActiveTab={setActiveTab} setSelectedService={setSelectedService} />;
+        return <HomeView setActiveTab={changeTab} setSelectedService={setSelectedService} />;
       case 'about':
-        return <AboutView setActiveTab={setActiveTab} />;
+        return <AboutView setActiveTab={changeTab} />;
       case 'services':
-        return <ServicesView setActiveTab={setActiveTab} setSelectedService={setSelectedService} />;
+        return <ServicesView setActiveTab={changeTab} setSelectedService={setSelectedService} />;
       case 'gallery':
         return <GalleryView onOpenLightbox={handleOpenLightbox} />;
       case 'booking':
@@ -93,13 +114,13 @@ function App() {
             selectedService={selectedService}
             setSelectedService={setSelectedService}
             onSubmitSuccess={handleBookingSubmit}
-            setActiveTab={setActiveTab}
+            goBack={goBack}
           />
         );
       case 'contact':
         return <ContactView />;
       default:
-        return <HomeView setActiveTab={setActiveTab} setSelectedService={setSelectedService} />;
+        return <HomeView setActiveTab={changeTab} setSelectedService={setSelectedService} />;
     }
   };
 
@@ -140,7 +161,7 @@ function App() {
       {!isLoading && (
         <div className="app-container">
           {/* Header (Top Nav) */}
-          <Header activeTab={activeTab} setActiveTab={setActiveTab} />
+          <Header activeTab={activeTab} setActiveTab={changeTab} onBack={goBack} />
 
           {/* Main Display Area */}
           <main className="main-display-panel">
@@ -159,10 +180,10 @@ function App() {
           </main>
 
           {/* Footer */}
-          <Footer setActiveTab={setActiveTab} />
+          <Footer setActiveTab={changeTab} />
 
           {/* Bottom Nav Bar (Mobile-only sticky bar) */}
-          <BottomNav activeTab={activeTab} setActiveTab={setActiveTab} />
+          <BottomNav activeTab={activeTab} setActiveTab={changeTab} />
 
           {/* Floating Action Menu (Quick Call / Chat) */}
           <FloatingActions />

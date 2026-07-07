@@ -17,14 +17,14 @@ interface BookingViewProps {
   selectedService: string;
   setSelectedService: (service: string) => void;
   onSubmitSuccess: (data: BookingDetails) => void;
-  setActiveTab: (tab: string) => void;
+  goBack: () => void;
 }
 
 export const BookingView: React.FC<BookingViewProps> = ({
   selectedService,
   setSelectedService,
   onSubmitSuccess,
-  setActiveTab,
+  goBack,
 }) => {
   const [formData, setFormData] = useState<BookingDetails>({
     name: '',
@@ -150,11 +150,11 @@ export const BookingView: React.FC<BookingViewProps> = ({
           <button 
             type="button" 
             className="booking-back-btn"
-            onClick={() => setActiveTab('services')}
-            aria-label="Back to Services"
+            onClick={goBack}
+            aria-label="Go Back"
           >
             <ArrowLeft size={16} />
-            <span>Back to Services</span>
+            <span>Back</span>
           </button>
 
           <div className="booking-form-header">
