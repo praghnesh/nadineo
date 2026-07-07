@@ -1,6 +1,6 @@
 import React from 'react';
 // @ts-ignore
-import { Check, X, Calendar, User, Clock, ShieldCheck, MessageSquare } from 'lucide-react';
+import { Check, X, Calendar, User, Clock, ShieldCheck, MessageSquare, MapPin } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface BookingDetails {
@@ -90,6 +90,14 @@ export const SuccessPopup: React.FC<SuccessPopupProps> = ({ isOpen, onClose, boo
                 <div>
                   <span className="summary-label">Preferred Time:</span>
                   <span className="summary-val">{bookingData.time}</span>
+                </div>
+              </div>
+
+              <div className="summary-item">
+                <MapPin size={14} className="summary-icon" />
+                <div>
+                  <span className="summary-label">Address:</span>
+                  <span className="summary-val">{bookingData.address}</span>
                 </div>
               </div>
             </div>
