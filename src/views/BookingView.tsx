@@ -90,12 +90,11 @@ export const BookingView: React.FC<BookingViewProps> = ({
     const tempErrors: Partial<Record<keyof BookingDetails, string>> = {};
     if (!formData.name.trim()) tempErrors.name = 'Full Name is required';
     
-    // PH Phone format checking (should match 09... or +639...)
-    const phoneRegex = /^(09|\+639)\d{9}$/;
+    const cleanPhone = formData.phone.replace(/\D/g, ''); // strip non-digits
     if (!formData.phone.trim()) {
       tempErrors.phone = 'Phone number is required';
-    } else if (!phoneRegex.test(formData.phone.replace(/\s/g, ''))) {
-      tempErrors.phone = 'Enter a valid PH mobile number (e.g. 09171234567)';
+    } else if (cleanPhone.length < 10 || cleanPhone.length > 12) {
+      tempErrors.phone = 'Enter a valid mobile number (10 to 12 digits)';
     }
 
     if (formData.email.trim() && !/\S+@\S+\.\S+/.test(formData.email)) {
