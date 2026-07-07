@@ -6,8 +6,8 @@ export const FloatingActions: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   // Replace with actual Nadine service numbers/social links
-  const phoneNumber = '+918247818568'; // Ph phone format
-  const whatsappNumber = '918247818568'; 
+  const phoneNumber = '+639606280788'; // Ph phone format
+  const whatsappNumber = '639606280788'; 
   const facebookUsername = 'NadineHomeBeauty'; 
 
   const actions = [

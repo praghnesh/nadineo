@@ -60,7 +60,7 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
             </li>
             <li>
               <Phone size={14} className="f-icon" />
-              <span>+91 82478 18568</span>
+              <span>+63 960 628 0788</span>
             </li>
             <li>
               <Mail size={14} className="f-icon" />
