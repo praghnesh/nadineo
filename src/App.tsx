@@ -93,6 +93,7 @@ function App() {
             selectedService={selectedService}
             setSelectedService={setSelectedService}
             onSubmitSuccess={handleBookingSubmit}
+            setActiveTab={setActiveTab}
           />
         );
       case 'contact':

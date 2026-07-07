@@ -30,7 +30,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, setSelectedSer
 
   const featuredServices = [
     {
-      title: 'Luxury Hair Styling',
+      title: 'Luxury Hair Coloring',
       price: '₱750',
       time: '60 mins',
       image: hairImage,
@@ -44,7 +44,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, setSelectedSer
       category: 'Facial',
     },
     {
-      title: 'Gel Nails & Art Combo',
+      title: 'Custom Nail Art detailing',
       price: '₱650',
       time: '45 mins',
       image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=600&q=80',

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, User, Phone, Mail, MapPin, Sparkles, Clock, AlertCircle } from 'lucide-react';
+import { Calendar, User, Phone, Mail, MapPin, Sparkles, Clock, AlertCircle, ArrowLeft } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface BookingDetails {
@@ -17,12 +17,14 @@ interface BookingViewProps {
   selectedService: string;
   setSelectedService: (service: string) => void;
   onSubmitSuccess: (data: BookingDetails) => void;
+  setActiveTab: (tab: string) => void;
 }
 
 export const BookingView: React.FC<BookingViewProps> = ({
   selectedService,
   setSelectedService,
   onSubmitSuccess,
+  setActiveTab,
 }) => {
   const [formData, setFormData] = useState<BookingDetails>({
     name: '',
@@ -145,6 +147,16 @@ export const BookingView: React.FC<BookingViewProps> = ({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
+          <button 
+            type="button" 
+            className="booking-back-btn"
+            onClick={() => setActiveTab('services')}
+            aria-label="Back to Services"
+          >
+            <ArrowLeft size={16} />
+            <span>Back to Services</span>
+          </button>
+
           <div className="booking-form-header">
             <div className="decor-spark">
               <Sparkles size={16} />
@@ -337,6 +349,30 @@ export const BookingView: React.FC<BookingViewProps> = ({
           max-width: 720px;
           background: var(--bg-card);
           padding: 40px;
+        }
+
+        .booking-back-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: transparent;
+          border: none;
+          color: var(--accent);
+          font-family: 'Poppins', sans-serif;
+          font-size: 13px;
+          font-weight: 500;
+          cursor: pointer;
+          margin-bottom: 24px;
+          padding: 8px 16px;
+          border-radius: var(--radius-full);
+          border: 1px solid var(--border-color);
+          transition: all var(--transition-normal);
+        }
+
+        .booking-back-btn:hover {
+          background: rgba(183, 110, 121, 0.05);
+          color: var(--accent-hover);
+          transform: translateX(-2px);
         }
 
         @media (max-width: 768px) {

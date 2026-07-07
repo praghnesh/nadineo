@@ -262,3 +262,16 @@ a {
     padding-bottom: var(--nav-bar-height); /* Height of Bottom Navigation */
   }
 }
+
+/* Hide Vercel Toolbar preview injections completely */
+vercel-live-feedback,
+#vercel-live-feedback,
+#__next-vercel-toolbar,
+[data-vercel-feedback-trigger],
+[id*="vercel-toolbar"],
+[class*="vercel-toolbar"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
