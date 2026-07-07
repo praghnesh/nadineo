@@ -25,7 +25,7 @@ export const SuccessPopup: React.FC<SuccessPopupProps> = ({ isOpen, onClose, boo
 
   const whatsappNumber = '918247818568'; 
   const messageText = `Hi Nadine! I just requested a beauty service booking online:\n\n*Name:* ${bookingData.name}\n*Phone:* ${bookingData.phone}\n*Service:* ${bookingData.service}\n*Date:* ${bookingData.date}\n*Time:* ${bookingData.time}\n*Address:* ${bookingData.address}\n*Special Request:* ${bookingData.requests || 'None'}\n\nPlease confirm my slot!`;
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messageText)}`;
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(messageText)}`;
 
   return (
     <AnimatePresence>
@@ -105,8 +105,6 @@ export const SuccessPopup: React.FC<SuccessPopupProps> = ({ isOpen, onClose, boo
             <div className="popup-actions">
               <a 
                 href={whatsappUrl} 
-                target="_blank" 
-                rel="noopener noreferrer" 
                 className="btn btn-primary whatsapp-confirm-btn"
               >
                 <MessageSquare size={16} className="btn-icon-left" />

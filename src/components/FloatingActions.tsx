@@ -23,7 +23,7 @@ export const FloatingActions: React.FC = () => {
       label: 'WhatsApp',
       icon: MessageSquare,
       color: '#25D366', // WhatsApp Green
-      url: `https://wa.me/${whatsappNumber}?text=Hi%20Nadine%20Home%20Beauty%20Services!%20I'd%20like%20to%20inquire%20about%20booking%20a%20service.`,
+      url: `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=Hi%20Nadine%20Home%20Beauty%20Services!%20I'd%20like%20to%20inquire%20about%20booking%20a%20service.`,
     },
     {
       id: 'messenger',
@@ -45,8 +45,6 @@ export const FloatingActions: React.FC = () => {
                 <motion.a
                   key={action.id}
                   href={action.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="action-button-item"
                   initial={{ opacity: 0, y: 15, scale: 0.8 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
