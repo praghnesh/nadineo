@@ -98,9 +98,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
       tempErrors.phone = 'Enter a valid PH mobile number (e.g. 09171234567)';
     }
 
-    if (!formData.email.trim()) {
-      tempErrors.email = 'Email address is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    if (formData.email.trim() && !/\S+@\S+\.\S+/.test(formData.email)) {
       tempErrors.email = 'Enter a valid email address';
     }
 
@@ -198,7 +196,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
             {/* Input Row: Email & Address */}
             <div className="form-row-double">
               <div className="input-group">
-                <label htmlFor="email">Email Address</label>
+                <label htmlFor="email">Email Address (Optional)</label>
                 <div className="input-wrapper">
                   <Mail size={16} className="input-icon" />
                   <input
