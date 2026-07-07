@@ -23,7 +23,7 @@ interface SuccessPopupProps {
 export const SuccessPopup: React.FC<SuccessPopupProps> = ({ isOpen, onClose, bookingData }) => {
   if (!bookingData) return null;
 
-  const whatsappNumber = '639171234567'; 
+  const whatsappNumber = '918247818568'; 
   const messageText = `Hi Nadine! I just requested a beauty service booking online:\n\n*Name:* ${bookingData.name}\n*Phone:* ${bookingData.phone}\n*Service:* ${bookingData.service}\n*Date:* ${bookingData.date}\n*Time:* ${bookingData.time}\n*Address:* ${bookingData.address}\n*Special Request:* ${bookingData.requests || 'None'}\n\nPlease confirm my slot!`;
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messageText)}`;
 

@@ -143,7 +143,7 @@ export const ContactView: React.FC = () => {
                 <Phone size={16} className="info-icon" />
                 <div>
                   <strong>Phone Line</strong>
-                  <span>+63 917 123 4567</span>
+                  <span>+91 82478 18568</span>
                 </div>
               </div>
 
