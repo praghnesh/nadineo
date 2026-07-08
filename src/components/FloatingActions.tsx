@@ -7,7 +7,7 @@ export const FloatingActions: React.FC = () => {
 
   // Replace with actual Nadine service numbers/social links
   const phoneNumber = '+639606280788'; // Ph phone format
-  const facebookUsername = 'NadineHomeBeauty'; 
+  const facebookUsername = 'Nadine.o1906'; 
 
   const actions = [
     {

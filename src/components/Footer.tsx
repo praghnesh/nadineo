@@ -26,13 +26,13 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
             Bringing salon-grade hair styling, facial treatments, nails, makeup, and relaxation therapies directly to your home in Cavite.
           </p>
           <div className="footer-socials">
-            <a href="https://facebook.com/NadineHomeBeauty" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <a href="https://facebook.com/Nadine.o1906" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <Facebook size={16} />
             </a>
             <a href={instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <Instagram size={16} />
             </a>
-            <a href="https://m.me/NadineHomeBeauty" target="_blank" rel="noopener noreferrer" aria-label="Messenger">
+            <a href="https://m.me/Nadine.o1906" target="_blank" rel="noopener noreferrer" aria-label="Messenger">
               <MessageSquare size={16} />
             </a>
           </div>

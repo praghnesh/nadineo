@@ -157,13 +157,13 @@ export const ContactView: React.FC = () => {
             </div>
 
             <div className="contact-social-row">
-              <a href="https://facebook.com/NadineHomeBeauty" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <a href="https://facebook.com/Nadine.o1906" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <Facebook size={18} />
               </a>
               <a href="https://www.instagram.com/nadineo1906?igsh=OHFzeTJ2MWRzZ3Zm" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <Instagram size={18} />
               </a>
-              <a href="https://m.me/NadineHomeBeauty" target="_blank" rel="noopener noreferrer" aria-label="Messenger">
+              <a href="https://m.me/Nadine.o1906" target="_blank" rel="noopener noreferrer" aria-label="Messenger">
                 <MessageSquare size={18} />
               </a>
             </div>
