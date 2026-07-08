@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MessageCircle, Phone, MessageSquare, X } from 'lucide-react';
+import { MessageCircle, Phone, Instagram, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const FloatingActions: React.FC = () => {
@@ -7,7 +7,6 @@ export const FloatingActions: React.FC = () => {
 
   // Replace with actual Nadine service numbers/social links
   const phoneNumber = '+639606280788'; // Ph phone format
-  const whatsappNumber = '639606280788'; 
   const facebookUsername = 'NadineHomeBeauty'; 
 
   const actions = [
@@ -19,11 +18,11 @@ export const FloatingActions: React.FC = () => {
       url: `tel:${phoneNumber}`,
     },
     {
-      id: 'whatsapp',
-      label: 'WhatsApp',
-      icon: MessageSquare,
-      color: '#25D366', // WhatsApp Green
-      url: `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=Hi%20Nadine%20Home%20Beauty%20Services!%20I'd%20like%20to%20inquire%20about%20booking%20a%20service.`,
+      id: 'instagram',
+      label: 'Instagram',
+      icon: Instagram,
+      color: '#E1306C', // Instagram Pink
+      url: 'https://www.instagram.com/nadineo1906?igsh=OHFzeTJ2MWRzZ3Zm',
     },
     {
       id: 'messenger',

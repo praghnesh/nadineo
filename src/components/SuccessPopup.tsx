@@ -1,6 +1,6 @@
 import React from 'react';
 // @ts-ignore
-import { Check, X, Calendar, User, Clock, ShieldCheck, MessageSquare, MapPin } from 'lucide-react';
+import { Check, X, Calendar, User, Clock, ShieldCheck, Instagram, MapPin } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface BookingDetails {
@@ -23,9 +23,7 @@ interface SuccessPopupProps {
 export const SuccessPopup: React.FC<SuccessPopupProps> = ({ isOpen, onClose, bookingData }) => {
   if (!bookingData) return null;
 
-  const whatsappNumber = '639606280788'; 
-  const messageText = `Hi Nadine! I just requested a beauty service booking online:\n\n*Name:* ${bookingData.name}\n*Phone:* ${bookingData.phone}\n*Service:* ${bookingData.service}\n*Date:* ${bookingData.date}\n*Time:* ${bookingData.time}\n*Address:* ${bookingData.address}\n*Special Request:* ${bookingData.requests || 'None'}\n\nPlease confirm my slot!`;
-  const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(messageText)}`;
+  const instagramUrl = 'https://www.instagram.com/nadineo1906?igsh=OHFzeTJ2MWRzZ3Zm';
 
   return (
     <AnimatePresence>
@@ -104,11 +102,13 @@ export const SuccessPopup: React.FC<SuccessPopupProps> = ({ isOpen, onClose, boo
 
             <div className="popup-actions">
               <a 
-                href={whatsappUrl} 
-                className="btn btn-primary whatsapp-confirm-btn"
+                href={instagramUrl} 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary instagram-confirm-btn"
               >
-                <MessageSquare size={16} className="btn-icon-left" />
-                Confirm via WhatsApp Fast
+                <Instagram size={16} className="btn-icon-left" />
+                Confirm via Instagram
               </a>
               <button className="btn btn-secondary close-action-btn" onClick={onClose}>
                 Done
@@ -179,13 +179,13 @@ export const SuccessPopup: React.FC<SuccessPopupProps> = ({ isOpen, onClose, boo
               width: 64px;
               height: 64px;
               border-radius: var(--radius-full);
-              background: rgba(37, 211, 102, 0.1);
-              color: #25D366;
+              background: rgba(183, 110, 121, 0.1);
+              color: var(--accent);
               display: flex;
               align-items: center;
               justify-content: center;
               margin: 0 auto 16px;
-              border: 1px solid rgba(37, 211, 102, 0.2);
+              border: 1px solid rgba(183, 110, 121, 0.2);
             }
 
             .popup-header h3 {
@@ -258,16 +258,18 @@ export const SuccessPopup: React.FC<SuccessPopupProps> = ({ isOpen, onClose, boo
               gap: 12px;
             }
 
-            .whatsapp-confirm-btn {
-              background: #25D366;
-              box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+            .instagram-confirm-btn {
+              background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+              box-shadow: 0 4px 15px rgba(220, 39, 67, 0.25);
               border: none;
               font-size: 14px;
+              color: #FFFFFF !important;
             }
 
-            .whatsapp-confirm-btn:hover {
-              background: #20ba59;
-              box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+            .instagram-confirm-btn:hover {
+              background: linear-gradient(45deg, #e68d2f 0%, #db6135 25%, #d1223e 50%, #c21e5e 75%, #b2147f 100%);
+              box-shadow: 0 6px 20px rgba(220, 39, 67, 0.4);
+              transform: translateY(-2px);
             }
 
             .btn-icon-left {
